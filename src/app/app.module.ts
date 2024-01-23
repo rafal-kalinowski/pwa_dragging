@@ -9,7 +9,6 @@ import {ButtonModule} from "primeng/button";
 import {DragDropModule} from "primeng/dragdrop";
 import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
 import {CdkScrollable} from "@angular/cdk/overlay";
-import {DragAndDropModule} from "angular-draggable-droppable";
 
 @NgModule({
   declarations: [
@@ -29,8 +28,7 @@ import {DragAndDropModule} from "angular-draggable-droppable";
         DragDropModule,
         CdkDrag,
         CdkScrollable,
-        CdkDropList,
-        DragAndDropModule
+        CdkDropList
     ],
   providers: [],
   bootstrap: [AppComponent]
