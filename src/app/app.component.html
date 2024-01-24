@@ -35,17 +35,22 @@
 
 <div class="unselectable">
   <div *ngFor="let card of cards"
-       (touchend)="onTouchEnd($event)" (touchmove)="onTouchMove($event)" (touchstart)="onTouchStart(card, $event)" (touchcancel)="onTouchCancel()"
+       (touchend)="onTouchEnd(card, $event)" (touchmove)="onTouchMove($event)" (touchstart)="onTouchStart(card, $event)" (touchcancel)="onTouchCancel()"
        [style.opacity]="(touchingCardId == card && touchingMovedX > TRIGGER_PIXELS) ? '0.2' : '1.0'"
   >
     <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '360px', margin: '10px' }">
       <p>
-        Lorem ipsum dolor sit amet {{card}}
+        <span class="nowrap">Lorem ipsum dolor sit amet - </span>
+        <span class="nowrap" style="font-weight: bold;">
+          <button pButton type="button" [label]="card" class="p-button-link" (click)="onLabel(card)"></button>
+        </span>
       </p>
       <ng-template pTemplate="footer">
-        <p-button label="Save" icon="pi pi-check"></p-button>
-        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+        <p-button label="Save" icon="pi pi-check" (onClick)="onSave()"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" (onClick)="onCancel()" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
       </ng-template>
     </p-card>
   </div>
 </div>
+
+<p-toast position="top-left" key="myKey1"></p-toast>
